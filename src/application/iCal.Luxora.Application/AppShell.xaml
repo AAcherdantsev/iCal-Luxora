@@ -7,7 +7,6 @@
     Title="iCal.Luxora.Application">
 
     <ShellContent
-        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
