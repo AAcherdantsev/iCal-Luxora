@@ -6,7 +6,6 @@
              xmlns:icons="clr-namespace:iCal.Luxora.Application.UI.Components.Icons"
              xmlns:components="clr-namespace:iCal.Luxora.Application.UI.Components"
              xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
-             xmlns:header="clr-namespace:iCal.Luxora.Application.UI.Header"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:local="clr-namespace:iCal.Luxora.Application.Extensions"
              xmlns:common="clr-namespace:iCal.Luxora.Application.UI.Common"
@@ -25,6 +24,8 @@
                 SemanticProperties.HeadingLevel="Level1" />
             
             <devices:SavedDeviceCard />
+            
+            <devices:FoundDevice />
             
             <BoxView StyleClass="Divider" />
             
@@ -65,13 +66,8 @@
         </VerticalStackLayout>
     </ScrollView>
         
-        <common:BottomView/>
-
-        
-        <!-- 
-        <header:Header Title="Device List" />
-        -->
-        
+        <common:Header Title="Device List" />
+        <common:BottomView></common:BottomView>
     </Grid>
 
 

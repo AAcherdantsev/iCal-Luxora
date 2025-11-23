@@ -3,7 +3,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
-             x:Class="iCal.Luxora.Application.UI.Header.Header"
+             x:Class="iCal.Luxora.Application.UI.Common.Header"
              x:Name="This">
     
     <StackLayout BindingContext="{x:Reference This}" 

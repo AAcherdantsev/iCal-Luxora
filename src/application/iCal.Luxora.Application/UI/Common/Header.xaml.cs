@@ -1,4 +1,4 @@
-namespace iCal.Luxora.Application.UI.Header;
+namespace iCal.Luxora.Application.UI.Common;
 
 public partial class Header : ContentView
 {

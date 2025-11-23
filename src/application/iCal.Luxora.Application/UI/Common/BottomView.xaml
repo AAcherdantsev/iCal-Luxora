@@ -6,12 +6,16 @@
              x:Class="iCal.Luxora.Application.UI.Common.BottomView">
     
     <StackLayout WidthRequest="500" 
-                 HeightRequest="160" 
+                 HeightRequest="20" 
                  VerticalOptions="End" 
                  HorizontalOptions="FillAndExpand" >
         
         <StackLayout.Effects>
             <uranium:BlurEffect Mode="Light" AccentOpacity="0.001"/>
         </StackLayout.Effects>
+            
+        <!-- some element for blur -->
+        <Label HorizontalTextAlignment="Center" 
+               TextColor="Transparent" Text="text" />
     </StackLayout>
 </ContentView>
