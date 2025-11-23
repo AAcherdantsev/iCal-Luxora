@@ -3,11 +3,10 @@
     x:Class="iCal.Luxora.Application.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:iCal.Luxora.Application"
+    xmlns:views="clr-namespace:iCal.Luxora.Application.UI.Views"
     Title="iCal.Luxora.Application">
-
+    
     <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
-
 </Shell>

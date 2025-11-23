@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
+             x:Class="iCal.Luxora.Application.UI.Header.Header"
+             x:Name="This">
+    
+    <StackLayout BindingContext="{x:Reference This}" 
+                 WidthRequest="500" 
+                 HeightRequest="70" 
+                 VerticalOptions="Start" 
+                 HorizontalOptions="FillAndExpand" >
+        
+        <StackLayout.Effects>
+            <uranium:BlurEffect Mode="Light" AccentOpacity="0.001"/>
+        </StackLayout.Effects>
+            
+        <Label Margin="0, 5" 
+               VerticalOptions="EndAndExpand" 
+               VerticalTextAlignment="End" 
+               Style="{StaticResource SubHeadline}"
+               Text="{Binding Path=Title}" 
+               HorizontalTextAlignment="Center" />
+    </StackLayout>
+</ContentView>

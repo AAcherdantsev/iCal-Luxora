@@ -47,8 +47,7 @@
         <MauiSplashScreen Include="Resources\Splash\splash.png" Color="#173352" BaseSize="256,256"/>
 
         <!-- Images -->
-        <MauiImage Include="Resources\Images\*"/>
-        <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185"/>
+        <MauiImage Include="Resources\Images\**\*.*" />
 
         <!-- Custom Fonts -->
         <MauiFont Include="Resources\Fonts\*"/>
@@ -60,6 +59,7 @@
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.Maui" Version="13.0.0" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.0" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.10" />
         <PackageReference Include="Microsoft.Maui.Essentials" Version="10.0.10" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0"/>
@@ -72,8 +72,32 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="UI\Pages\" />
       <Folder Include="UI\ViewModels\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiXaml Update="UI\Views\MainPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="UI\Views\MainPage.xaml.cs">
+        <DependentUpon>MainPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Resources\Strings\AppResources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AppResources.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Strings\AppResources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
 </Project>
