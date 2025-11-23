@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using UraniumUI;
-using CommunityToolkit.Maui;
 
 namespace iCal.Luxora.Application;
 

@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.Reflection;
 using iCal.Luxora.Application.Resources.Strings;
 
 namespace iCal.Luxora.Application.Extensions;
@@ -13,15 +12,12 @@ public class ResxLabelExtension : IMarkupExtension
     {
         object value = null;
 
-        if(Source != null)
+        if (Source != null)
         {
-            Type type = typeof(AppResources);
-            PropertyInfo property = type.GetProperty(Source);
+            var type = typeof(AppResources);
+            var property = type.GetProperty(Source);
 
-            if(property != null)
-            {
-                value = property.GetValue(null, null);
-            }
+            if (property != null) value = property.GetValue(null, null);
         }
 
         return value;
@@ -30,6 +26,8 @@ public class ResxLabelExtension : IMarkupExtension
 
 public static class ResxLabel
 {
-    public static string Get(string key) =>
-        AppResources.ResourceManager.GetString(key, CultureInfo.CurrentUICulture);
+    public static string Get(string key)
+    {
+        return AppResources.ResourceManager.GetString(key, CultureInfo.CurrentUICulture);
+    }
 }

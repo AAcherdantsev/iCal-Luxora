@@ -5,22 +5,22 @@
              xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
              x:Class="iCal.Luxora.Application.UI.Common.Header"
              x:Name="This">
-    
-    <StackLayout BindingContext="{x:Reference This}" 
-                 WidthRequest="500" 
-                 HeightRequest="70" 
-                 VerticalOptions="Start" 
-                 HorizontalOptions="FillAndExpand" >
-        
+
+    <StackLayout BindingContext="{x:Reference This}"
+                 WidthRequest="500"
+                 HeightRequest="70"
+                 VerticalOptions="Start"
+                 HorizontalOptions="FillAndExpand">
+
         <StackLayout.Effects>
-            <uranium:BlurEffect Mode="Light" AccentOpacity="0.001"/>
+            <uranium:BlurEffect Mode="Light" AccentOpacity="0.001" />
         </StackLayout.Effects>
-            
-        <Label Margin="0, 5" 
-               VerticalOptions="EndAndExpand" 
-               VerticalTextAlignment="End" 
+
+        <Label Margin="0, 5"
+               VerticalOptions="EndAndExpand"
+               VerticalTextAlignment="End"
                Style="{StaticResource SubHeadline}"
-               Text="{Binding Path=Title}" 
+               Text="{Binding Path=Title}"
                HorizontalTextAlignment="Center" />
     </StackLayout>
 </ContentView>

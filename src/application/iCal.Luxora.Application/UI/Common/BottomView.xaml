@@ -4,18 +4,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
              x:Class="iCal.Luxora.Application.UI.Common.BottomView">
-    
-    <StackLayout WidthRequest="500" 
-                 HeightRequest="20" 
-                 VerticalOptions="End" 
-                 HorizontalOptions="FillAndExpand" >
-        
+
+    <StackLayout WidthRequest="500"
+                 HeightRequest="20"
+                 VerticalOptions="End"
+                 HorizontalOptions="FillAndExpand">
+
         <StackLayout.Effects>
-            <uranium:BlurEffect Mode="Light" AccentOpacity="0.001"/>
+            <uranium:BlurEffect Mode="Light" AccentOpacity="0.001" />
         </StackLayout.Effects>
-            
+
         <!-- some element for blur -->
-        <Label HorizontalTextAlignment="Center" 
+        <Label HorizontalTextAlignment="Center"
                TextColor="Transparent" Text="text" />
     </StackLayout>
 </ContentView>

@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace iCal.Luxora.Application;
+﻿namespace iCal.Luxora.Application;
 
 public partial class App : Microsoft.Maui.Controls.Application
 {
