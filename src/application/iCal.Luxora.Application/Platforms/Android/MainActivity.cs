@@ -2,7 +2,8 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
-using Microsoft.Maui.Controls.PlatformConfiguration;
+using AndroidX.Core.View;
+using Color = Android.Graphics.Color;
 
 namespace iCal.Luxora.Application;
 
@@ -14,24 +15,38 @@ public class MainActivity : MauiAppCompatActivity
     protected override void OnCreate(Bundle? savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
+        WindowCompat.SetDecorFitsSystemWindows(Window, false);
 
-        /*
-        Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
-        Window.SetNavigationBarColor(Android.Graphics.Color.Transparent);
-        Window.DecorView.SystemUiVisibility =
-            (StatusBarVisibility) (SystemUiFlags.LayoutStable | SystemUiFlags.LayoutFullscreen);
-*/
-        MakeStatusBarTransparent();
+        // 2) Устанавливаем режим для выреза (notch) — только на Android P+
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.P)
+        {
+            var lp = Window.Attributes;
+            lp.LayoutInDisplayCutoutMode = LayoutInDisplayCutoutMode.ShortEdges;
+            Window.Attributes = lp;
+        }
+
+        // 3) Делаем статусбар прозрачным
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+        {
+            Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
+            Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+            Window.SetStatusBarColor(Color.Transparent);
+            Window.SetNavigationBarColor(Color.Transparent);
+        }
+
+        // 4) Устанавливаем поведение системных панелей (чтобы они скрывались жестом, если нужно)
+        var controller = new WindowInsetsControllerCompat(Window, Window.DecorView);
+        controller.SystemBarsBehavior = WindowInsetsControllerCompat.BehaviorShowTransientBarsBySwipe;
     }
 
-    void MakeStatusBarTransparent()
+    private void MakeStatusBarTransparent()
     {
         if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
         {
             Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
 
-            Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
+            Window.SetStatusBarColor(Color.Transparent);
 
             Window.DecorView.SystemUiVisibility =
                 (StatusBarVisibility)(

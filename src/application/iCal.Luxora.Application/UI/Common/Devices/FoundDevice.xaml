@@ -7,7 +7,7 @@
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              x:Class="iCal.Luxora.Application.UI.Common.Devices.FoundDevice">
 
-    <Border StrokeThickness="1" Padding="10">
+    <Border StrokeThickness="1" Padding="15, 10">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="10" />
         </Border.StrokeShape>
