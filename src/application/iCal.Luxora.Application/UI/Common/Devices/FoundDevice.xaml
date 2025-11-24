@@ -18,7 +18,7 @@
                     Radius="10" />
         </Border.Shadow>
 
-        <Grid ColumnDefinitions="30,*,*" RowDefinitions="30" ColumnSpacing="15">
+        <Grid ColumnDefinitions="40,*,*" RowDefinitions="40" ColumnSpacing="15">
             <icons:Icon Source="wifi.png" VerticalOptions="Fill" HorizontalOptions="Fill" />
             <Label Grid.Column="1" Text="Device name" VerticalTextAlignment="Center" />
 
@@ -31,9 +31,9 @@
                     <SolidColorBrush Color="{StaticResource PrimaryDark}" />
                 </material:ButtonView.Stroke>
 
-                <HorizontalStackLayout Margin="0, 5" Spacing="5">
+                <HorizontalStackLayout Margin="0, 8" Spacing="5">
 
-                    <Image Source="connection.png" VerticalOptions="Center">
+                    <Image Source="link" VerticalOptions="Center">
                         <Image.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                         </Image.Behaviors>
