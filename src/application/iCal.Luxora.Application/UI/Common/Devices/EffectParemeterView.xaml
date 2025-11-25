@@ -25,7 +25,9 @@
                     
         <Grid ColumnDefinitions="30, *, 30" ColumnSpacing="5">
             
-            <Image Source="brightness" Grid.Column="0">
+            <Image Source="brightness" 
+                   ToolTipProperties.Text="Brightness"
+                   Grid.Column="0">
                 <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
                 </Image.Behaviors>
@@ -33,11 +35,9 @@
             
             <Slider Grid.Column="1" x:Name="Slider" 
                     Minimum="0" Maximum="100" Value="90" HorizontalOptions="FillAndExpand" >
-                
                 <Slider.Behaviors>
                     <behaviors:IntSliderBehavior />
                 </Slider.Behaviors>
-                
             </Slider>
                         
             <Label Grid.Column="2" 

@@ -1,7 +1,8 @@
 <Solution>
-    <Folder Name="/src/"/>
+    <Folder Name="/src/" />
     <Folder Name="/src/application/">
-        <Project Path="src/application/iCal.Luxora.Application/iCal.Luxora.Application.csproj"/>
+        <Project Path="src/application/iCal.Luxora.Application/iCal.Luxora.Application.csproj" />
+        <Project Path="src/application/iCal.Luxora.Models/iCal.Luxora.Models.csproj" />
     </Folder>
-    <Folder Name="/tests/"/>
+    <Folder Name="/tests/" />
 </Solution>
