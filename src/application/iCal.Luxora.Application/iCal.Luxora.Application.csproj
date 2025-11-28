@@ -17,6 +17,7 @@
         <SingleProject>true</SingleProject>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <MauiXamlInflator>SourceGen</MauiXamlInflator>
 
         <!-- Display name -->
         <ApplicationTitle>iCal Luxora</ApplicationTitle>
@@ -72,6 +73,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="UI\Common\Devices\Parameters\" />
         <Folder Include="UI\ViewModels\"/>
     </ItemGroup>
 

@@ -65,6 +65,7 @@ public partial class MainPage : ContentPage
             Id = 1,
         },
     };
+    
 
     public MainPage()
     {

@@ -37,7 +37,7 @@ public class LedLamp
     /// <summary>
     /// Features supported by this LED lamp.
     /// </summary>
-    public IReadOnlySet<Features> Features { get; set; }
+    public IReadOnlySet<Feature> Features { get; set; }
     
     /// <summary>
     /// Effects supported by this LED lamp.

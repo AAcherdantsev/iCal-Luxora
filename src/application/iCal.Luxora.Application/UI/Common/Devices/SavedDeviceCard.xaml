@@ -4,7 +4,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:icons="clr-namespace:iCal.Luxora.Application.UI.Components.Icons"
+             xmlns:converters="clr-namespace:iCal.Luxora.Application.UI.Common.Converters"
+             x:Name="This"
              x:Class="iCal.Luxora.Application.UI.Common.Devices.SavedDeviceCard">
+    
+    <ContentView.Resources>
+        <converters:FeatureToImageConverter x:Key="FeatureToImageConverter"/>
+    </ContentView.Resources>
 
     <Border StrokeThickness="1" Padding="15">
         <Border.StrokeShape>
@@ -18,10 +24,11 @@
         </Border.Shadow>
 
         <VerticalStackLayout HorizontalOptions="Fill"
+                             BindingContext="{Binding Path=Features, Source={x:Reference This}}"
                              VerticalOptions="Fill">
-
+            
             <Grid ColumnDefinitions="*,*">
-
+                
                 <VerticalStackLayout Grid.Column="0" Spacing="10">
                     <Label Text="Device name" />
                     <BoxView StyleClass="Divider" Margin="0, 0, 15, 0" />
@@ -39,30 +46,38 @@
                     </HorizontalStackLayout>
 
                 </VerticalStackLayout>
-
+                
                 <VerticalStackLayout Grid.Column="1" Spacing="10">
                     <Label Text="Features" HorizontalTextAlignment="End" />
                     <BoxView StyleClass="Divider" Margin="15, 0, 0, 0" />
+                    
+                    <CollectionView ItemsSource="{Binding Path=Features, Source={x:Reference This}}"
+                                    SelectionMode="None"
+                                    HorizontalOptions="End"
+                                    FlowDirection="RightToLeft"
+                                    Margin="0">
+                        
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"
+                                             Span="4"
+                                             HorizontalItemSpacing="0"
+                                             VerticalItemSpacing="5" />
+                        </CollectionView.ItemsLayout>
 
-                    <HorizontalStackLayout HorizontalOptions="End" Spacing="8">
-                        <icons:Icon Source="bluetooth.png" WidthRequest="30" />
-                        <icons:Icon Source="wifi.png" WidthRequest="30" />
-                        <icons:Icon Source="music.png" WidthRequest="30" />
-                        <icons:Icon Source="games.png" WidthRequest="30" />
-                    </HorizontalStackLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <icons:Icon Source="{Binding ., Converter={StaticResource FeatureToImageConverter}}" WidthRequest="30" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
 
-                    <HorizontalStackLayout HorizontalOptions="End" Spacing="8">
-                        <icons:Icon Source="sd_card.png" WidthRequest="30" />
-                        <icons:Icon Source="microphone.png" WidthRequest="30" />
-                        <icons:Icon Source="draw_brush_reflection.png" WidthRequest="30" />
-                        <icons:Icon Source="battery_full.png" WidthRequest="30" />
-                    </HorizontalStackLayout>
+                    </CollectionView>
                 </VerticalStackLayout>
             </Grid>
 
             <BoxView StyleClass="Divider" Margin="0, 8" />
 
-            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Grid ColumnDefinitions="*,*" 
+                  ColumnSpacing="10">
 
                 <Button StyleClass="OutlinedButton"
                         Grid.Column="0"

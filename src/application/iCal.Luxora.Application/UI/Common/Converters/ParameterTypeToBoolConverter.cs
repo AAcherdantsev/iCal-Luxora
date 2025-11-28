@@ -12,8 +12,7 @@ public class ParameterTypeToBoolConverter : IValueConverter
             var result = parameterType is ParameterType.Color
                 or ParameterType.Brightness
                 or ParameterType.Slider
-                or ParameterType.Volume
-                or ParameterType.Text;
+                or ParameterType.Volume;
             
             if (parameter is bool isInverted)
             {
@@ -21,7 +20,6 @@ public class ParameterTypeToBoolConverter : IValueConverter
             }
             return result;
         }
-
         return false;
     }
 

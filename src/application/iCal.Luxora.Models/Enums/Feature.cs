@@ -3,7 +3,7 @@ namespace iCal.Luxora.Models.Enums;
 /// <summary>
 /// Features of a device.
 /// </summary>
-public enum Features
+public enum Feature
 {
     /// <summary>
     /// Bluetooth

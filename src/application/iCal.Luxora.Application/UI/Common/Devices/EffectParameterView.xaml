@@ -41,11 +41,13 @@
                 <Label Text="{Binding Name}"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Start"/>
-                <BoxView StyleClass="Divider" Margin="0" />
+                <BoxView StyleClass="Divider"
+                         Margin="0" />
                 
             </VerticalStackLayout>
             
-            <Grid ColumnDefinitions="30, *" ColumnSpacing="5" >
+            <Grid ColumnDefinitions="30, *" 
+                  ColumnSpacing="5" >
                 <Image Source="{Binding Type, Converter={StaticResource ParameterTypeToImageConverter}}" 
                        ToolTipProperties.Text="{Binding Name}"
                        Grid.Column="0"
@@ -94,8 +96,9 @@
                 </Slider>
                 
                 <material:TextField Grid.Column="1" 
-                                    Margin="5, 0, 0,0"
                                     AllowClear="True"
+                                    Margin="5, 0, 0,0"
+                                    Title="{Binding Name}"
                                     Text="{Binding CurrentValueObj}"
                                     IsVisible="{Binding Type, Converter={StaticResource IsEqualConverter}, ConverterParameter={x:Static enums:ParameterType.Text}}"/>
             </Grid>
