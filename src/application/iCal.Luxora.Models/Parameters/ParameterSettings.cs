@@ -27,7 +27,7 @@ public class ParameterSettings<T> : IParameterSettings
     /// <summary>
     /// Default value for this parameter setting.
     /// </summary>
-    public required T DefaultValue { get; set; }
+    public required T? DefaultValue { get; set; }
     
     /// <summary>
     /// Current value for this parameter setting.
@@ -45,20 +45,32 @@ public class ParameterSettings<T> : IParameterSettings
     public T? MaxValue { get; set; }
     
     /// <inheritdoc/>
-    object? IParameterSettings.DefaultValueObj => DefaultValue;
-    
-    /// <inheritdoc/>
-    object? IParameterSettings.CurrentValueObj
+    public object? DefaultValueObj 
     {
-        get => CurrentValue;
-        set => CurrentValue = (T)value!;
+        get => DefaultValue;
+        set => DefaultValue = (T)System.Convert.ChangeType(value, typeof(T));
     }
     
     /// <inheritdoc/>
-    object? IParameterSettings.MinValueObj => MinValue;
+    public object? CurrentValueObj
+    {
+        get => CurrentValue;
+        set => CurrentValue = (T)System.Convert.ChangeType(value, typeof(T));
+    }
     
     /// <inheritdoc/>
-    object? IParameterSettings.MaxValueObj => MaxValue;
+    public object? MinValueObj
+    {
+        get => MinValue;
+        set => MinValue = (T)System.Convert.ChangeType(value, typeof(T));
+    }
+    
+    /// <inheritdoc/>
+    public object? MaxValueObj 
+    {
+        get => MaxValue;
+        set => MaxValue = (T)System.Convert.ChangeType(value, typeof(T));
+    }
 
     /// <inheritdoc/>
     public Type ValueType => typeof(T);
