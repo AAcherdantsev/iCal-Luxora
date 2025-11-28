@@ -1,8 +1,8 @@
 namespace iCal.Luxora.Application.UI.Common.Devices;
 
-public partial class EffectParemeterView : ContentView
+public partial class EffectParameterView : ContentView
 {
-    public EffectParemeterView()
+    public EffectParameterView()
     {
         InitializeComponent();
     }

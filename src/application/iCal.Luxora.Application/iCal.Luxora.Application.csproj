@@ -100,4 +100,8 @@
         </EmbeddedResource>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\iCal.Luxora.Models\iCal.Luxora.Models.csproj" />
+    </ItemGroup>
+
 </Project>

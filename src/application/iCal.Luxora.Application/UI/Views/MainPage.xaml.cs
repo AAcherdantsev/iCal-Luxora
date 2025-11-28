@@ -1,22 +1,24 @@
-﻿namespace iCal.Luxora.Application.UI.Views;
+﻿using iCal.Luxora.Models.Abstractions;
+using iCal.Luxora.Models.Enums;
+using iCal.Luxora.Models.Parameters;
+
+namespace iCal.Luxora.Application.UI.Views;
 
 public partial class MainPage : ContentPage
 {
-    private int count;
+    public IParameterSettings ParameterSettings { get; set; } = new ParameterSettings<int>()
+    {
+        Name = "Some Parameter",
+        CurrentValue = 3,
+        Type = ParameterType.Slider,
+        DefaultValue = 50,
+        MinValue = 0,
+        MaxValue = 100,
+        Id = 1,
+    };
 
     public MainPage()
     {
         InitializeComponent();
-    }
-
-    private void OnCounterClicked(object? sender, EventArgs e)
-    {
-        count++;
-    }
-
-    protected override void OnSizeAllocated(double width, double height)
-    {
-        base.OnSizeAllocated(width, height);
-        //HeaderStack.WidthRequest = this.Width;
     }
 }

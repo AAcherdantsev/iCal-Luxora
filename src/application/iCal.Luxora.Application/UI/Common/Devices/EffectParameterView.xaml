@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:behaviors="clr-namespace:iCal.Luxora.Application.UI.Common.Behaviors"
+             xmlns:abstractions="clr-namespace:iCal.Luxora.Models.Abstractions;assembly=iCal.Luxora.Models"
+             xmlns:params="clr-namespace:iCal.Luxora.Models.Parameters;assembly=iCal.Luxora.Models"
+             xmlns:enums="clr-namespace:iCal.Luxora.Models.Enums;assembly=iCal.Luxora.Models"
+             xmlns:converters="clr-namespace:iCal.Luxora.Application.UI.Common.Converters"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             
+             x:DataType="abstractions:IParameterSettings"
+             x:Class="iCal.Luxora.Application.UI.Common.Devices.EffectParameterView">
+    
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <toolkit:IsEqualConverter x:Key="IsEqualConverter"/>
+            <toolkit:IsNotEqualConverter x:Key="IsNotEqualConverter"/>
+            <converters:ObjectToIntConverter x:Key="ObjectToIntConverter"/>
+            <converters:ObjectToBoolConverter x:Key="ObjectToBoolConverter"/>
+            <converters:ParameterTypeToBoolConverter x:Key="ParameterTypeToBoolConverter"/>
+            <converters:ParameterTypeToImageConverter x:Key="ParameterTypeToImageConverter"/>
+            <converters:IsParameterTypeSliderConverter x:Key="IsParameterTypeSliderConverter"/>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Border StrokeThickness="1" Padding="15, 10">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="10" />
+        </Border.StrokeShape>
+        <Border.Shadow>
+            <Shadow Brush="Black"
+                    Opacity="0.3"
+                    Offset="0,4"
+                    Radius="10" />
+        </Border.Shadow>
+        <VerticalStackLayout Spacing="5">
+            <VerticalStackLayout Spacing="5"
+                                 IsVisible="{Binding Type, Converter={StaticResource ParameterTypeToBoolConverter}}">
+                <Label Text="{Binding Name}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Start"/>
+                <BoxView StyleClass="Divider" Margin="0" />
+                
+            </VerticalStackLayout>
+            
+            <Grid ColumnDefinitions="30, *" ColumnSpacing="5" >
+                <Image Source="{Binding Type, Converter={StaticResource ParameterTypeToImageConverter}}" 
+                       ToolTipProperties.Text="{Binding Name}"
+                       Grid.Column="0"
+                       IsVisible="{Binding Type, Converter={StaticResource IsNotEqualConverter}, ConverterParameter={x:Static enums:ParameterType.CheckBox}}">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Primary}"/>
+                    </Image.Behaviors>
+                </Image>
+                
+                <material:CheckBox ColumnSpacing="5" 
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   IsVisible="{Binding Type, Converter={StaticResource IsEqualConverter}, ConverterParameter={x:Static enums:ParameterType.CheckBox}}"
+                                   LabelPosition="After" 
+                                   Text="{Binding Name}"
+                                   IsChecked="{Binding CurrentValueObj, Converter={StaticResource ObjectToBoolConverter}}"/>
+                
+                <Grid Grid.Column="1"
+                      HorizontalOptions="Fill"
+                      IsVisible="{Binding Type, Converter={StaticResource IsEqualConverter}, ConverterParameter={x:Static enums:ParameterType.Color}}">
+                    
+                    <BoxView Style="{StaticResource LineForColorSlider}" />
+                    
+                    <Slider Value="{Binding CurrentValueObj, Converter={StaticResource ObjectToIntConverter}}"  
+                            Maximum="{Binding MaxValueObj, Converter={StaticResource ObjectToIntConverter}}"
+                            Minimum="{Binding MinValueObj, Converter={StaticResource ObjectToIntConverter}}"
+                            Style="{StaticResource ColorSlider}">
+                        <Slider.Behaviors>
+                            <behaviors:HueThumbBehavior/>
+                            <behaviors:IntSliderBehavior/>
+                        </Slider.Behaviors>
+                    </Slider>
+                </Grid>
+                
+                <Slider Grid.Column="1"
+                        HorizontalOptions="Fill"
+                        Maximum="{Binding MaxValueObj, Converter={StaticResource ObjectToIntConverter}}"
+                        Minimum="{Binding MinValueObj, Converter={StaticResource ObjectToIntConverter}}"
+                        Value="{Binding CurrentValueObj, Converter={StaticResource ObjectToIntConverter}}"  
+                        IsVisible="{Binding Type, Converter={StaticResource IsParameterTypeSliderConverter}}">
+                    <Slider.Behaviors>
+                        <behaviors:IntSliderBehavior/>
+                    </Slider.Behaviors>
+                </Slider>
+                
+                <material:TextField Grid.Column="1" 
+                                    AllowClear="True"
+                                    Title="{Binding Name}" 
+                                    Text="{Binding CurrentValueObj}"
+                                    IsVisible="{Binding Type, Converter={StaticResource IsEqualConverter}, ConverterParameter={x:Static enums:ParameterType.Text}}"/>
+            </Grid>
+        </VerticalStackLayout>
+    </Border>
+</ContentView>
