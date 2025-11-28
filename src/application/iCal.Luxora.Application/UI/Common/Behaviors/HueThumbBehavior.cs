@@ -23,7 +23,7 @@ public class HueThumbBehavior : Behavior<Slider>
 
     private void UpdateThumb(double value, Slider slider)
     {
-        double hue = value / 255.0;
+        double hue = value / slider.Maximum;
         slider.ThumbColor = Color.FromHsla(hue, 1.0, 0.5);
     }
 }
