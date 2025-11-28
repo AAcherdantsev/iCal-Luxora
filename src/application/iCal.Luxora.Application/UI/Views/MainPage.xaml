@@ -31,10 +31,14 @@
 
                 <devices:FoundDevice />
                 
-                <devices:EffectParameterView BindingContext="{Binding Path=ParameterSettings, Source={x:Reference This}}"/>
-                
-                
-                
+                <VerticalStackLayout Spacing="10" BindableLayout.ItemsSource="{Binding Path=ParameterSettings, Source={x:Reference This}}" >
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate >
+                            <devices:EffectParameterView BindingContext="{Binding .}"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+
                 
                 <Border StrokeThickness="1" Padding="15, 10">
                     <Border.StrokeShape>

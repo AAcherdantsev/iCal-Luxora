@@ -55,7 +55,9 @@
                     </Image.Behaviors>
                 </Image>
                 
-                <material:CheckBox ColumnSpacing="5" 
+                <material:CheckBox ColumnSpacing="15" 
+                                   Color="{StaticResource Primary}"
+                                   Margin="2.5,0,0,0"
                                    Grid.Column="0"
                                    Grid.ColumnSpan="2"
                                    IsVisible="{Binding Type, Converter={StaticResource IsEqualConverter}, ConverterParameter={x:Static enums:ParameterType.CheckBox}}"
@@ -92,8 +94,8 @@
                 </Slider>
                 
                 <material:TextField Grid.Column="1" 
+                                    Margin="5, 0, 0,0"
                                     AllowClear="True"
-                                    Title="{Binding Name}" 
                                     Text="{Binding CurrentValueObj}"
                                     IsVisible="{Binding Type, Converter={StaticResource IsEqualConverter}, ConverterParameter={x:Static enums:ParameterType.Text}}"/>
             </Grid>
