@@ -8,7 +8,7 @@ public class ObjectToBoolConverter : IValueConverter
     {
         if (value is bool b)
             return b;
-        
+
         return false;
     }
 

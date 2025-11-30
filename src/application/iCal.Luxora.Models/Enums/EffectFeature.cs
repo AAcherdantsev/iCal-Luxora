@@ -1,22 +1,22 @@
 namespace iCal.Luxora.Models.Enums;
 
 /// <summary>
-/// Represents a feature of an effect.
+///     Represents a feature of an effect.
 /// </summary>
 public enum EffectFeature
 {
     /// <summary>
-    /// Sound reaction effect.
+    ///     Sound reaction effect.
     /// </summary>
-    SoundReaction,
-    
+    SoundReaction = 1,
+
     /// <summary>
-    /// Custom effect.
+    ///     Custom effect.
     /// </summary>
-    CustomEffect,
-    
+    CustomEffect = 2,
+
     /// <summary>
-    /// Game effect.
+    ///     Game effect.
     /// </summary>
-    Game,
+    Game = 3,
 }

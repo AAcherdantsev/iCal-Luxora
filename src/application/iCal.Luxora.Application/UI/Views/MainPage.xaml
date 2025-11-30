@@ -2,63 +2,36 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              xmlns:devices="clr-namespace:iCal.Luxora.Application.UI.Common.Devices"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:behaviors="clr-namespace:iCal.Luxora.Application.UI.Common.Behaviors"
              xmlns:converters="clr-namespace:iCal.Luxora.Application.UI.Common.Converters"
              x:Name="This"
              x:Class="iCal.Luxora.Application.UI.Views.MainPage">
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
-            <converters:ObjectToIntConverter x:Key="ObjectToIntConverter"/>
-            <toolkit:DoubleToIntConverter x:Key="DoubleToIntConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-        <ScrollView >
 
-            <VerticalStackLayout HorizontalOptions="Fill" 
-                                 Padding="0, 10,0,0"
-                                 Spacing="25">
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Fill"
+                             Padding="0, 10,0,0"
+                             Spacing="25">
 
-                <devices:SavedDeviceCard  />
-                <devices:FoundDevice />
-                
-                <VerticalStackLayout Spacing="10" BindableLayout.ItemsSource="{Binding Path=ParameterSettings, Source={x:Reference This}}" >
-                    <BindableLayout.ItemTemplate>
-                        <DataTemplate >
-                            <devices:EffectParameterView BindingContext="{Binding .}"/>
-                        </DataTemplate>
-                    </BindableLayout.ItemTemplate>
-                </VerticalStackLayout>
-                
-                <Border StrokeThickness="1" Padding="15, 10">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="10" />
-                    </Border.StrokeShape>
-                    <Border.Shadow>
-                        <Shadow Brush="Black"
-                                Opacity="0.3"
-                                Offset="0,4"
-                                Radius="10" />
-                    </Border.Shadow>
-                    
-                    <Grid ColumnDefinitions="30, *, 30" ColumnSpacing="15">
-                        
-                        <material:CheckBox HorizontalOptions="Center"  LabelPosition="Before" />
+            <devices:SavedDeviceCard />
+            <devices:FoundDevice />
 
-                        
-                        <Label Grid.Column="1" 
-                               HorizontalTextAlignment="Start"
-                               VerticalTextAlignment="Center"
-                               Text="Parameter" />
-                    </Grid>
-                </Border>
-                
-                <BoxView StyleClass="Divider" />
-                
+            <VerticalStackLayout Spacing="10"
+                                 BindableLayout.ItemsSource="{Binding Path=ParameterSettings, Source={x:Reference This}}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <devices:EffectParameterView BindingContext="{Binding .}" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
             </VerticalStackLayout>
-        </ScrollView>
+
+            <BoxView StyleClass="Divider" />
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -15,15 +15,12 @@ public class FeatureToImageConverter : IValueConverter
         { Feature.Microphone, "microphone" },
         { Feature.Paint, "draw_brush_reflection" },
         { Feature.Battery, "battery_full" },
-        { Feature.AutoBrightness, "auto_brightness" },
+        { Feature.AutoBrightness, "auto_brightness" }
     };
-    
+
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is Feature feature)
-        {
-            return FeatureToImage[feature];
-        }
+        if (value is Feature feature) return FeatureToImage[feature];
         return string.Empty;
     }
 

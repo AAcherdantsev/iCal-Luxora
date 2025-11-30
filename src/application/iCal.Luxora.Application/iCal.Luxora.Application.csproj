@@ -73,7 +73,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="UI\Common\Devices\Parameters\" />
+        <Folder Include="UI\Common\Devices\Parameters\"/>
         <Folder Include="UI\ViewModels\"/>
     </ItemGroup>
 
@@ -103,7 +103,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\iCal.Luxora.Models\iCal.Luxora.Models.csproj" />
+        <ProjectReference Include="..\iCal.Luxora.Models\iCal.Luxora.Models.csproj"/>
     </ItemGroup>
 
 </Project>

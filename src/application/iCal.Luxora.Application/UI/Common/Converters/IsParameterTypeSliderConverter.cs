@@ -8,9 +8,7 @@ public class IsParameterTypeSliderConverter : IValueConverter
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is ParameterType parameterType)
-        {
             return parameterType is ParameterType.Slider or ParameterType.Brightness or ParameterType.Volume;
-        }
         return false;
     }
 

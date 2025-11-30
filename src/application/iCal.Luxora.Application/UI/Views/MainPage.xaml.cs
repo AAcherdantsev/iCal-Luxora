@@ -6,9 +6,14 @@ namespace iCal.Luxora.Application.UI.Views;
 
 public partial class MainPage : ContentPage
 {
-    public List<IParameterSettings> ParameterSettings { get; set; } = new List<IParameterSettings>()
+    public MainPage()
     {
-        new ParameterSettings<int>()
+        InitializeComponent();
+    }
+
+    public List<IParameterSettings> ParameterSettings { get; set; } = new()
+    {
+        new ParameterSettings<int>
         {
             Name = "Brightness Parameter",
             CurrentValue = 3,
@@ -16,9 +21,9 @@ public partial class MainPage : ContentPage
             DefaultValue = 50,
             MinValue = 0,
             MaxValue = 100,
-            Id = 1,
+            Id = 1
         },
-        new ParameterSettings<int>()
+        new ParameterSettings<int>
         {
             Name = "Volume Parameter",
             CurrentValue = 3,
@@ -26,9 +31,9 @@ public partial class MainPage : ContentPage
             DefaultValue = 2,
             MinValue = 0,
             MaxValue = 10,
-            Id = 1,
+            Id = 1
         },
-        new ParameterSettings<int>()
+        new ParameterSettings<int>
         {
             Name = "Slider Parameter",
             CurrentValue = 3,
@@ -36,17 +41,17 @@ public partial class MainPage : ContentPage
             DefaultValue = 50,
             MinValue = 0,
             MaxValue = 10,
-            Id = 1,
+            Id = 1
         },
-        new ParameterSettings<bool>()
+        new ParameterSettings<bool>
         {
             Name = "Check box Parameter",
             CurrentValue = true,
             Type = ParameterType.CheckBox,
             DefaultValue = false,
-            Id = 1,
+            Id = 1
         },
-        new ParameterSettings<int>()
+        new ParameterSettings<int>
         {
             Name = "Color Parameter",
             CurrentValue = 10,
@@ -54,21 +59,15 @@ public partial class MainPage : ContentPage
             MinValue = 0,
             MaxValue = 255,
             DefaultValue = 10,
-            Id = 1,
+            Id = 1
         },
-        new ParameterSettings<string>()
+        new ParameterSettings<string>
         {
             Name = "Text Parameter",
             CurrentValue = "Some text",
             Type = ParameterType.Text,
             DefaultValue = string.Empty,
-            Id = 1,
-        },
+            Id = 1
+        }
     };
-    
-
-    public MainPage()
-    {
-        InitializeComponent();
-    }
 }

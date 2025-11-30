@@ -8,9 +8,9 @@ public class ObjectToIntConverter : IValueConverter
     {
         return value switch
         {
-            int i => (double)i,
+            int i => i,
             double d => d,
-            float f => (double)f,
+            float f => f,
             _ => 0d
         };
     }
@@ -18,8 +18,8 @@ public class ObjectToIntConverter : IValueConverter
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is double d)
-            return (object)d;
+            return d;
 
-        return (object)0;
+        return 0;
     }
 }

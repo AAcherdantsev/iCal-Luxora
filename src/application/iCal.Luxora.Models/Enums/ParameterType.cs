@@ -1,37 +1,37 @@
 namespace iCal.Luxora.Models.Enums;
 
 /// <summary>
-/// Parameter types.
+///     Parameter types.
 /// </summary>
 public enum ParameterType
 {
     /// <summary>
-    /// Brightness
+    ///     Brightness
     /// </summary>
-    Brightness,
-    
+    Brightness = 1,
+
     /// <summary>
-    /// Volume
+    ///     Volume
     /// </summary>
-    Volume,
-    
+    Volume = 2,
+
     /// <summary>
-    /// Slider
+    ///     Slider
     /// </summary>
-    Slider, 
-    
+    Slider = 3,
+
     /// <summary>
-    /// Color
+    ///     Color
     /// </summary>
-    Color,
-    
+    Color = 4,
+
     /// <summary>
-    /// Check box
+    ///     Check box
     /// </summary>
-    CheckBox,
-    
+    CheckBox = 5,
+
     /// <summary>
-    /// Text
+    ///     Text
     /// </summary>
-    Text
+    Text = 6
 }

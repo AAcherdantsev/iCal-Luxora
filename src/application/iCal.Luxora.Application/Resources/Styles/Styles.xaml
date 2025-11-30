@@ -500,29 +500,45 @@
         <Setter Property="SelectedTabColor"
                 Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
     </Style>
-    
+
     <Style TargetType="Slider" x:Key="ColorSlider">
-        <Setter Property="Minimum" Value="0"/>
-        <Setter Property="Maximum" Value="255"/>
-        <Setter Property="ThumbColor" Value="White"/>
-        <Setter Property="MinimumTrackColor" Value="Transparent"/>
-        <Setter Property="MaximumTrackColor" Value="Transparent"/>
+        <Setter Property="Minimum" Value="0" />
+        <Setter Property="Maximum" Value="255" />
+        <Setter Property="ThumbColor" Value="White" />
+        <Setter Property="MinimumTrackColor" Value="Transparent" />
+        <Setter Property="MaximumTrackColor" Value="Transparent" />
     </Style>
-    
+
     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0" x:Key="GradientBrush">
-        <GradientStop Offset="0.0"  Color="#FF0000"/>
-        <GradientStop Offset="0.16" Color="#FFFF00"/>
-        <GradientStop Offset="0.33" Color="#00FF00"/>
-        <GradientStop Offset="0.50" Color="#00FFFF"/>
-        <GradientStop Offset="0.66" Color="#0000FF"/>
-        <GradientStop Offset="0.83" Color="#FF00FF"/>
-        <GradientStop Offset="1.0"  Color="#FF0000"/>
+        <GradientStop Offset="0.0" Color="#FF0000" />
+        <GradientStop Offset="0.16" Color="#FFFF00" />
+        <GradientStop Offset="0.33" Color="#00FF00" />
+        <GradientStop Offset="0.50" Color="#00FFFF" />
+        <GradientStop Offset="0.66" Color="#0000FF" />
+        <GradientStop Offset="0.83" Color="#FF00FF" />
+        <GradientStop Offset="1.0" Color="#FF0000" />
     </LinearGradientBrush>
-    
+
+    <RoundRectangle x:Key="RoundRectangle"
+                    CornerRadius="10" />
+
+    <Shadow x:Key="BaseShadow"
+            Brush="Black"
+            Opacity="0.3"
+            Offset="0,4"
+            Radius="10" />
+
     <Style TargetType="BoxView" x:Key="LineForColorSlider">
         <Setter Property="HeightRequest" Value="2" />
-        <Setter Property="Margin" Value="15, 0"></Setter>
+        <Setter Property="Margin" Value="15, 0" />
         <Setter Property="Background" Value="{StaticResource GradientBrush}" />
     </Style>
-    
+
+    <Style x:Key="BaseBorder" TargetType="Border">
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Padding" Value="15, 10" />
+        <Setter Property="StrokeShape" Value="{StaticResource RoundRectangle}" />
+        <Setter Property="Shadow" Value="{StaticResource BaseShadow}" />
+    </Style>
+
 </ResourceDictionary>

@@ -1,52 +1,52 @@
 namespace iCal.Luxora.Models.Enums;
 
 /// <summary>
-/// Features of a device.
+///     Features of a device.
 /// </summary>
 public enum Feature
 {
     /// <summary>
-    /// Bluetooth
+    ///     Bluetooth
     /// </summary>
-    Bluetooth,
-    
+    Bluetooth = 1,
+
     /// <summary>
-    /// Wi-Fi
+    ///     Wi-Fi
     /// </summary>
-    WiFi,
-    
+    WiFi = 2,
+
     /// <summary>
-    /// Music
+    ///     Music
     /// </summary>
-    Music,
-    
+    Music = 3,
+
     /// <summary>
-    /// Games
+    ///     Games
     /// </summary>
-    Games,
-    
+    Games = 4,
+
     /// <summary>
-    /// SD card
+    ///     SD card
     /// </summary>
-    SdCard,
-    
+    SdCard = 5,
+
     /// <summary>
-    /// Microphone
+    ///     Microphone
     /// </summary>
-    Microphone,
-    
+    Microphone = 6,
+
     /// <summary>
-    /// Paint
+    ///     Paint
     /// </summary>
-    Paint,
-    
+    Paint = 7,
+
     /// <summary>
-    /// Battery
+    ///     Battery
     /// </summary>
-    Battery,
-    
+    Battery = 8,
+
     /// <summary>
-    /// Auto brightness
+    ///     Auto brightness
     /// </summary>
-    AutoBrightness
+    AutoBrightness = 9
 }

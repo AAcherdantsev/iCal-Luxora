@@ -7,38 +7,25 @@
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              x:Class="iCal.Luxora.Application.UI.Common.Devices.FoundDevice">
 
-    <Border StrokeThickness="1" 
-            Padding="15, 10">
-        
-        <Border.StrokeShape>
-            <RoundRectangle CornerRadius="10" />
-        </Border.StrokeShape>
-        
-        <Border.Shadow>
-            <Shadow Brush="Black"
-                    Opacity="0.3"
-                    Offset="0,4"
-                    Radius="10" />
-        </Border.Shadow>
-
-        <Grid ColumnDefinitions="40,*,*" 
-              RowDefinitions="40" 
+    <Border Style="{StaticResource BaseBorder}">
+        <Grid ColumnDefinitions="40,*,*"
+              RowDefinitions="40"
               ColumnSpacing="15">
-            
-            <icons:Icon Source="wifi.png" 
-                        VerticalOptions="Fill" 
+
+            <icons:Icon Source="wifi.png"
+                        VerticalOptions="Fill"
                         HorizontalOptions="Fill" />
-            
-            <Label Grid.Column="1" 
-                   Text="Device name" 
+
+            <Label Grid.Column="1"
+                   Text="Device name"
                    VerticalTextAlignment="Center" />
 
-            <material:ButtonView Margin="0" 
-                                 Grid.Column="2" 
-                                 StrokeThickness="1" 
+            <material:ButtonView Margin="0"
+                                 Grid.Column="2"
+                                 StrokeThickness="1"
                                  Padding="15, 0"
                                  HorizontalOptions="End">
-                
+
                 <material:ButtonView.StrokeShape>
                     <RoundRectangle CornerRadius="15" />
                 </material:ButtonView.StrokeShape>
@@ -55,9 +42,9 @@
                         </Image.Behaviors>
                     </Image>
 
-                    <Label Text="Connect" 
-                           HorizontalTextAlignment="Center" 
-                           VerticalTextAlignment="Center"/>
+                    <Label Text="Connect"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center" />
                 </HorizontalStackLayout>
             </material:ButtonView>
         </Grid>

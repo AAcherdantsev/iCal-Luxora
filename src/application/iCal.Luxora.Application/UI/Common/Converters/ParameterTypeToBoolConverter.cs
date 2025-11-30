@@ -13,13 +13,11 @@ public class ParameterTypeToBoolConverter : IValueConverter
                 or ParameterType.Brightness
                 or ParameterType.Slider
                 or ParameterType.Volume;
-            
-            if (parameter is bool isInverted)
-            {
-                return isInverted ? !result : result;
-            }
+
+            if (parameter is bool isInverted) return isInverted ? !result : result;
             return result;
         }
+
         return false;
     }
 

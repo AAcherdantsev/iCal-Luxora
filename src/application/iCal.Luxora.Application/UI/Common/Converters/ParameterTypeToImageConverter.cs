@@ -12,16 +12,12 @@ public class ParameterTypeToImageConverter : IValueConverter
         { ParameterType.Slider, "slider" },
         { ParameterType.Color, "color" },
         { ParameterType.CheckBox, "" }, // no image for checkboxes
-        { ParameterType.Text, "text" },
-
+        { ParameterType.Text, "text" }
     };
-    
+
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is ParameterType parameterType)
-        {
-            return ParameterTypeToImage[parameterType];
-        }
+        if (value is ParameterType parameterType) return ParameterTypeToImage[parameterType];
         return string.Empty;
     }
 

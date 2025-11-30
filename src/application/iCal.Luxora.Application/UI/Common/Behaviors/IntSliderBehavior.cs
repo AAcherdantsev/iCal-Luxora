@@ -17,7 +17,7 @@ public class IntSliderBehavior : Behavior<Slider>
     private void OnSliderValueChanged(object sender, ValueChangedEventArgs e)
     {
         var slider = (Slider)sender;
-        int rounded = (int)Math.Round(e.NewValue);
+        var rounded = (int)Math.Round(e.NewValue);
 
         if (slider.Value != rounded)
             slider.Value = rounded;

@@ -11,13 +11,12 @@ public class ParameterTemplateSelector : DataTemplateSelector
     public DataTemplate ColorTemplate { get; set; }
     public DataTemplate CheckBoxTemplate { get; set; }
     public DataTemplate TextTemplate { get; set; }
-    
+
     protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
     {
         var template = new DataTemplate(() => new Label { Text = "Unsupported" });
-        
+
         if (container is IParameterSettings parameterSettings)
-        {
             return parameterSettings.Type switch
             {
                 ParameterType.Brightness => BrightnessTemplate,
@@ -28,8 +27,7 @@ public class ParameterTemplateSelector : DataTemplateSelector
                 ParameterType.Text => TextTemplate,
                 _ => template
             };
-        }
-        
+
         return template;
     }
 }
