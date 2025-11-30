@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 using UraniumUI;
 
 namespace iCal.Luxora.Application;
@@ -21,6 +22,8 @@ public static class MauiProgram
             .UseUraniumUIBlurs()
             .UseUraniumUIMaterial()
             .UseMauiCommunityToolkit();
+        
+        builder.UseSkiaSharp();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
