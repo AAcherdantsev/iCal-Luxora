@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using UraniumUI;
+using UXDivers.Popups.Maui;
 
 namespace iCal.Luxora.Application;
 
@@ -19,11 +20,11 @@ public static class MauiProgram
                 fonts.AddFontAwesomeIconFonts();
             })
             .UseUraniumUI()
+            .UseSkiaSharp()
             .UseUraniumUIBlurs()
+            .UseUXDiversPopups()
             .UseUraniumUIMaterial()
             .UseMauiCommunityToolkit();
-        
-        builder.UseSkiaSharp();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
