@@ -98,28 +98,45 @@ public partial class BasePixelView : ContentView
         Canvas.InvalidateSurface();
     }
 
+
+    public event EventHandler<bool> TouchStateChanged;
+
+
+    private bool _isTouch = false;
+    
+    
     private void OnCanvasTouch(object? sender, SKTouchEventArgs e)
     {
-        if (e.ActionType == SKTouchAction.Pressed || e.ActionType == SKTouchAction.Moved)
+        if (e.ActionType != SKTouchAction.Pressed && e.ActionType != SKTouchAction.Moved)
         {
-            var canvasView = (SKCanvasView)sender!;
-            var viewW = canvasView.CanvasSize.Width;
-            var viewH = canvasView.CanvasSize.Height;
-            float scale = Math.Min(viewW / WidthPixels, viewH / HeightPixels);
-            float left = (viewW - WidthPixels * scale) / 2f;
-            float top = (viewH - HeightPixels * scale) / 2f;
+            if (_isTouch) TouchStateChanged?.Invoke(this, false);
+            _isTouch = false;
+            return;
+        }
 
-            float px = (e.Location.X - left) / scale;
-            float py = (e.Location.Y - top) / scale;
+        if (!_isTouch)
+        {
+            TouchStateChanged?.Invoke(this, true);
+            _isTouch = true;
+        }
+        
+        var canvasView = (SKCanvasView)sender!;
+        var viewW = canvasView.CanvasSize.Width;
+        var viewH = canvasView.CanvasSize.Height;
+        float scale = Math.Min(viewW / WidthPixels, viewH / HeightPixels);
+        float left = (viewW - WidthPixels * scale) / 2f;
+        float top = (viewH - HeightPixels * scale) / 2f;
 
-            int ix = (int)Math.Floor(px);
-            int iy = (int)Math.Floor(py);
+        float px = (e.Location.X - left) / scale;
+        float py = (e.Location.Y - top) / scale;
 
-            if (ix >= 0 && ix < WidthPixels && iy >= 0 && iy < HeightPixels)
-            {
-                SetPixel(ix, iy, SKColors.DarkRed);
-                e.Handled = true;
-            }
+        int ix = (int)Math.Floor(px);
+        int iy = (int)Math.Floor(py);
+
+        if (ix >= 0 && ix < WidthPixels && iy >= 0 && iy < HeightPixels)
+        {
+            SetPixel(ix, iy, SKColors.DarkRed);
+            e.Handled = true;
         }
     }
 }

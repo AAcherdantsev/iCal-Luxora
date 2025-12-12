@@ -9,5 +9,6 @@
                            HeightRequest="250" WidthRequest="250"
                        EnableTouchEvents="True"
                        PaintSurface="OnCanvasPaint"
-                       Touch="OnCanvasTouch" />
+                       Touch="OnCanvasTouch" >
+    </controls:SKCanvasView>
 </ContentView>

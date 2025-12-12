@@ -5,21 +5,32 @@
              xmlns:devices="clr-namespace:iCal.Luxora.Application.UI.Common.Devices"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:converters="clr-namespace:iCal.Luxora.Application.UI.Common.Converters"
+             xmlns:drawing="clr-namespace:iCal.Luxora.Application.UI.Components.Drawing"
+             xmlns:common="clr-namespace:iCal.Luxora.Application.UI.Common"
+             xmlns:behaviors="clr-namespace:iCal.Luxora.Application.UI.Common.Behaviors"
              x:Name="This"
-             x:Class="iCal.Luxora.Application.UI.Views.MainPage">
+             Padding="0"
+             x:Class="iCal.Luxora.Application.UI.Views.MainPage"
+             SafeAreaEdges="{x:Static SafeAreaEdges.None}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <ScrollView>
+ 
+    <ScrollView Margin="0" Padding="0">
         <VerticalStackLayout HorizontalOptions="Fill"
-                             Padding="0, 10,0,0"
+                             Padding="0, 0,0,0"
                              Spacing="25">
 
             <devices:SavedDeviceCard />
             <devices:FoundDevice />
+            
+            <drawing:BasePixelView WidthPixels="32" HeightPixels="32" >
+                <drawing:BasePixelView.Behaviors>
+                    <behaviors:ScrollViewBlockerBehavior />
+                </drawing:BasePixelView.Behaviors>
+            </drawing:BasePixelView>
 
             <VerticalStackLayout Spacing="10"
                                  BindableLayout.ItemsSource="{Binding Path=ParameterSettings, Source={x:Reference This}}">
